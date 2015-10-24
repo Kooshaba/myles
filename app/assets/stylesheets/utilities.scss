@@ -1,0 +1,68 @@
+.inline-block {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Margin & Padding */
+
+@for $i from 0 through 100 {
+  .m#{$i} {
+    margin: #{$i}px;
+  }
+
+  .mt#{$i} {
+    margin-top: #{$i}px;
+  }
+
+  .mb#{$i} {
+    margin-bottom: #{$i}px;
+  }
+
+  .ml#{$i} {
+    margin-left: #{$i}px;
+  }
+
+  .mr#{$i} {
+    margin-right: #{$i}px;
+  }
+
+  .mtb#{$i} {
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+
+  .mlr#{$i} {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+  }
+
+  .p#{$i} {
+    padding: #{$i}px;
+  }
+
+  .pt#{$i} {
+    padding-top: #{$i}px;
+  }
+
+  .pb#{$i} {
+    padding-bottom: #{$i}px;
+  }
+
+  .pl#{$i} {
+    padding-left: #{$i}px;
+  }
+
+  .pr#{$i} {
+    padding-right: #{$i}px;
+  }
+
+  .ptb#{$i} {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+
+  .plr#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+}

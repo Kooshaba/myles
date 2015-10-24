@@ -1,9 +1,10 @@
 .landing__header {
-  background: #40376E;
+  background: $main-color;
   color: #fff;
   font-size: 30px;
   padding: 25px;
   animation: slide_in 1.5s;
+  overflow: hidden;
 }
 
 @keyframes slide_in {
@@ -19,4 +20,8 @@
   100% {
     max-height: 300px;
   }
+}
+
+.landing__header-logo {
+  width: 100px;
 }
