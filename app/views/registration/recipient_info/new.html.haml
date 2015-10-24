@@ -6,5 +6,16 @@
 
   .p25
     = form_for @recipient, url: registration_recipient_info_path do |f|
+      = f.text_field :first_name, placeholder: "First Name", required: true, class: "form__text-field"
+      = f.text_field :last_name, placeholder: "Last Name", required: true, class: "form__text-field"
+
+      %h2.mtb25 Shipping Information
+      = f.fields_for :address do |af|
+        = af.text_field :address1, placeholder: "Street Address", required: true, class: "form__text-field"
+        = af.text_field :address2, placeholder: "Apt, Suite, etc.", class: "form__text-field"
+        = af.text_field :city, placeholder: "City", required: true, class: "form__text-field"
+        = af.text_field :state, placeholder: "State", required: true, class: "form__text-field"
+        = af.text_field :zip, placeholder: "Zip Code", required: true, class: "form__text-field"
+
       .text-center.mtb30
-        = f.submit "Set it up already!", class: "btn"
+        = f.submit "Complete Set Up", class: "btn"
