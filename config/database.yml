@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: myles_dev
+
+test:
+  <<: *default
+  database: myles_test
+
+production:
+  <<: *default
+  database: myles
