@@ -1,0 +1,22 @@
+.landing__header {
+  background: #40376E;
+  color: #fff;
+  font-size: 30px;
+  padding: 25px;
+  animation: slide_in 1.5s;
+}
+
+@keyframes slide_in {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 300px;
+  }
+}
