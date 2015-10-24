@@ -1,0 +1,26 @@
+.registration__header.column-12
+  .registration__header-logo.inline-block.mr10
+    = render "svg_html/logo", icon_color: "#fff"
+  First, I'll need your info
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .actions
+    = f.submit "Sign up"
+
+= render "devise/shared/links"
