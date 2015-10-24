@@ -1,0 +1,24 @@
+.form {
+  &__text-field {
+    @include border-box-magic;
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    font-size: $font-m;
+    border-radius: $default-border-radius;
+    border: #999999 1px solid;
+
+    &:focus {
+      outline: 0;
+      border-color: $main-color;
+      color: $main-color;
+    }
+  }
+}
+
+:focus::-webkit-input-placeholder {
+  color: $main-color;
+}

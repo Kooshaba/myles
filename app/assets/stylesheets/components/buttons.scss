@@ -1,0 +1,20 @@
+.btn {
+  @include border-box-magic;
+  display: inline-block;
+  border: 0;
+  font-size: $font-m;
+  color: #fff;
+  background: $main-color;
+  padding: 15px 50px;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($main-color, 10%);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

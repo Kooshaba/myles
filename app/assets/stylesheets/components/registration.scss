@@ -1,12 +1,3 @@
-.registration__header {
-  background: $main-color;
-  color: #fff;
-  font-size: 30px;
-  padding: 25px;
-  animation: slide_in 1.5s;
-  overflow: hidden;
-}
-
 @keyframes slide_in {
   0% {
     max-height: 0;
@@ -18,10 +9,30 @@
   }
 
   100% {
-    max-height: 300px;
+    max-height: 2000px;
   }
+}
+
+.registration__container {
+  overflow: hidden;
+  animation: slide_in 1.5s;
+}
+
+.registration__header {
+  background: $main-color;
+  color: #fff;
+  font-size: $font-xl;
+  padding: 25px;
+  text-align: center;
 }
 
 .registration__header-logo {
   width: 100px;
+  margin: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .registration__header-logo {
+    display: block !important;
+  }
 }
