@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     namespace :registration do
       resource :account, controller: "account"
+      resource :billing_info, controller: "billing_info"
+      resource :recipient_info, controller: "recipient_info"
     end
   end
 

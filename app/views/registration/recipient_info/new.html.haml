@@ -1,0 +1,10 @@
+.registration__container
+  .registration__header.column-12
+    .registration__header-logo.inline-block.mr10
+      = render "svg_html/logo", icon_color: "#fff"
+    Sweet! So who are you setting this up for?
+
+  .p25
+    = form_for @recipient, url: registration_recipient_info_path do |f|
+      .text-center.mtb30
+        = f.submit "Set it up already!", class: "btn"

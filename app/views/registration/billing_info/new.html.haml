@@ -1,0 +1,10 @@
+.registration__container
+  .registration__header.column-12
+    .registration__header-logo.inline-block.mr10
+      = render "svg_html/logo", icon_color: "#fff"
+    Great! Now let's add your billing information
+
+  .p25
+    = form_for @billing_info, url: registration_billing_info_path do |f|
+      .text-center.mtb30
+        = f.submit "Confirm Billing Details", class: "btn"

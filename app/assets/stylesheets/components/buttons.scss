@@ -9,6 +9,7 @@
   border-radius: 30px;
   text-decoration: none;
   cursor: pointer;
+  max-width: 100%;
 
   &:hover {
     background: darken($main-color, 10%);

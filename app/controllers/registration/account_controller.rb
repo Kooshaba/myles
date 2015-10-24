@@ -3,10 +3,9 @@ module Registration
 
     protected
 
-    # TODO - Edit this path to go to the billing info
-    # def after_sign_up_path_for(resource)
-    #
-    # end
+    def after_sign_up_path_for(resource)
+
+    end
 
     private
 
