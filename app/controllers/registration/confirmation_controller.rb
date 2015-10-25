@@ -5,7 +5,7 @@ module Registration
     end
 
     def create
-      Mastercard.subscribe current_user
+      Mastercard.new.subscribe current_user
 
       flash[:notice] = "Your information has been submitted."
       redirect_to registration_confirmation_path
