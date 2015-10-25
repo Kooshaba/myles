@@ -5,6 +5,63 @@
     Great! Now let's add your billing information
 
   .p25
-    = form_for @billing_info, url: registration_billing_info_path do |f|
+    = form_for @billing_info, url: registration_billing_info_path, html: { id: "js-simplify-payment-form" } do |f|
+      = text_field_tag :cc_number, nil, autofocus: true, required: true, autocomplete: "off", maxlength: 20, placeholder: "Credit Card Number", class: "form__text-field", id: "cc-number"
+      = text_field_tag :cc_cvc, nil, required: true, placeholder: "CVC", maxlength: 4, autocomplete: "off", class: "form__text-field", id: "cc-cvc"
+      = select_month Date.new(Date.today.year, 1).beginning_of_month, { use_two_digit_numbers: true }, { id: "cc-exp-month", required: true, class: "form__text-field" }
+      = select_year Date.today, { start_year: Date.today.year, end_year: Date.today.year+10 }, { id: "cc-exp-year", required: true, class: "form__text-field" }
+
       .text-center.mtb30
-        = f.submit "Confirm Billing Details", class: "btn"
+        = f.submit "Confirm Billing Details", class: "btn", id: "js-submit"
+
+%script{type: "text/javascript", src: "https://www.simplify.com/commerce/v1/simplify.js"}
+
+:javascript
+  function simplifyResponseHandler(data) {
+    var $paymentForm = $("#js-simplify-payment-form");
+    // Remove all previous errors
+    $(".error").remove();
+    // Check for errors
+    if (data.error) {
+        // Show any validation errors
+        if (data.error.code == "validation") {
+            var fieldErrors = data.error.fieldErrors,
+                fieldErrorsLength = fieldErrors.length,
+                errorList = "";
+            for (var i = 0; i < fieldErrorsLength; i++) {
+                errorList += "<div class='error'>Field: '" + fieldErrors[i].field +
+                             "' is invalid - " + fieldErrors[i].message + "</div>";
+            }
+            // Display the errors
+            $paymentForm.after(errorList);
+        }
+        // Re-enable the submit button
+        $("#js-submit").removeAttr("disabled");
+    } else {
+        // The token contains id, last4, and card type
+        var token = data["id"];
+        // Insert the token into the form so it gets submitted to the server
+        $paymentForm.append("<input type='hidden' name='simplify_token' value='" + token + "' />");
+        // Submit the form to the server
+        $paymentForm.get(0).submit();
+    }
+  }
+
+  $(document).ready(function() {
+    $("#js-simplify-payment-form").on("submit", function() {
+      // Disable the submit button
+      $("#js-submit").attr("disabled", "disabled");
+      // Generate a card token & handle the response
+      SimplifyCommerce.generateToken({
+        key: "sbpb_NzhiNmE3OTgtNGFjOC00YTAzLThmYjgtOThjNGE3ZmVjNzQ2",
+        card: {
+          number: $("#cc-number").val().replace(/\s+/g, ''),
+          cvc: $("#cc-cvc").val(),
+          expMonth: $("#cc-exp-month").val(),
+          expYear: $("#cc-exp-year").val().slice(-2)
+        }
+      }, simplifyResponseHandler);
+      // Prevent the form from submitting
+      return false;
+    });
+  });

@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :recipient
-
   accepts_nested_attributes_for :recipient
+
+  has_one :billing_detail
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

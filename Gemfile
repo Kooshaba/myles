@@ -17,6 +17,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rollbar'
 gem 'devise'
 gem 'awesome_print'
+gem 'simplify', '~> 1.1.2'
+gem 'figaro'
 
 # Shelves CSS Grid
 gem "shelves"

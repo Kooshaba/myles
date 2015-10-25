@@ -5,8 +5,21 @@ module Registration
     end
 
     def create
-      #TODO - Persist billing info
-      redirect_to new_registration_recipient_info_path
+      billing_info = current_user.create_billing_detail update_parameters
+
+      if billing_info.save
+        flash[:notice] = "Info saved successfully."
+        redirect_to new_registration_recipient_info_path
+      else
+        flash[:alert] = "An unexpected error occurred."
+        render :new
+      end
+    end
+
+    private
+
+    def update_parameters
+      params.permit(:simplify_token)
     end
   end
 end

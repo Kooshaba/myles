@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024220128) do
+ActiveRecord::Schema.define(version: 20151025025930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,14 @@ ActiveRecord::Schema.define(version: 20151024220128) do
 
   create_table "billing_details", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "simplify_token"
+    t.string   "simplify_customer_id"
+    t.integer  "card_last_four_digits"
+    t.integer  "card_exp_month"
+    t.integer  "card_exp_year"
+    t.string   "card_type"
   end
 
   add_index "billing_details", ["user_id"], name: "index_billing_details_on_user_id", using: :btree
