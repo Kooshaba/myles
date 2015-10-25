@@ -3,6 +3,23 @@
   vertical-align: middle;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.auto-overflow {
+  overflow: auto;
+}
+
+.max-width-content {
+  max-width: 900px;
+  margin: auto;
+}
+
 /* Margin & Padding */
 
 @for $i from 0 through 100 {

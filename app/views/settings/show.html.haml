@@ -1,0 +1,30 @@
+.header__container
+  .header__logo= render "svg_html/logo", icon_color: "#fff"
+  %ul.right
+    %li
+      = link_to "Log Out", destroy_user_session_path, method: :delete, class: "header__link"
+
+.p25
+  .max-width-content
+    = form_for @user, url: settings_path, method: :put do |f|
+      .mb50
+        %h1.mb15 Personal Information
+
+        .mb15
+          = f.label :first_name, "First Name", class: "form__label"
+          = f.text_field :first_name, value: @user.first_name.capitalize, class: "form__text-field"
+
+        .mb15
+          = f.label :last_name, "Last Name", class: "form__label"
+          = f.text_field :last_name, value: @user.last_name.capitalize, class: "form__text-field"
+
+        .mb15
+          = f.label :email, class: "form__label"
+          = f.email_field :email, class: "form__text-field"
+      .mb50
+        %h1.mb15 Billing Information
+
+      .mb50
+        %h1.mb15 Recipient Information
+
+      = f.submit "Save", class: "btn"

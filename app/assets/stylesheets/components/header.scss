@@ -1,0 +1,26 @@
+.header__container {
+  @include border-box-magic;
+  background: $main-color;
+  padding: 15px 15px 5px;
+  width: 100%;
+  color: #fff;
+  overflow: auto;
+}
+
+.header__logo {
+  width: 50px;
+  display: inline-block;
+}
+
+.header__link {
+  line-height: 40px;
+  text-decoration: none;
+  color: #fff;
+  border: transparent 1px solid;
+  padding: 5px 15px;
+  border-radius: $default-border-radius;
+
+  &:hover {
+    border-color: #fff;
+  }
+}
