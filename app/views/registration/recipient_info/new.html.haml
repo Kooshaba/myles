@@ -5,7 +5,8 @@
     Sweet! So who are you setting this up for?
 
   .p25.max-width-content
-    = form_for @recipient, url: registration_recipient_info_path do |f|
+    = form_for @recipient, url: registration_recipient_info_path, method: :post do |f|
+      = f.hidden_field :user_id
       = f.text_field :first_name, placeholder: "First Name", required: true, autofocus: true, class: "form__text-field"
       = f.text_field :last_name, placeholder: "Last Name", required: true, class: "form__text-field"
 
@@ -18,4 +19,4 @@
         = af.text_field :zip, placeholder: "Zip Code", required: true, class: "form__text-field"
 
       .text-center.mtb30
-        = f.submit "Complete Set Up", class: "btn"
+        = f.submit "Submit Information", class: "btn"
