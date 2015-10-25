@@ -9,6 +9,7 @@
     = form_for @user, url: settings_path, method: :put do |f|
       .mb50
         %h1.mb15 Personal Information
+        = f.hidden_field :id
 
         .mb15
           = f.label :first_name, "First Name", class: "form__label"
@@ -27,12 +28,15 @@
       .mb50
         %h1.mb15 Recipient Information
         = f.fields_for :recipient do |ri|
+          = ri.hidden_field :id
           = ri.hidden_field :user_id
           = ri.text_field :first_name, placeholder: "First Name", required: true, autofocus: true, class: "form__text-field"
           = ri.text_field :last_name, placeholder: "Last Name", required: true, class: "form__text-field"
 
           %h2.mtb25 Recipient's Address
           = ri.fields_for :address do |af|
+            = af.hidden_field :id
+            = af.hidden_field :recipient_id
             = af.text_field :address1, placeholder: "Street Address", required: true, class: "form__text-field"
             = af.text_field :address2, placeholder: "Apt, Suite, etc.", class: "form__text-field"
             = af.text_field :city, placeholder: "City", required: true, class: "form__text-field"
