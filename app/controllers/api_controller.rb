@@ -2,12 +2,12 @@ class ApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def categories
-    render json: Category.all
+    render json: { categories: Category.all }, root: true
   end
 
   def category
     category = Category.find(params.require(:category_id))
-    render json: category.items
+    render json: { items: category.items }, root: true
   end
 
   def place_order
@@ -15,7 +15,7 @@ class ApiController < ApplicationController
 
     order = Order.new(recipient: recipient, item: item)
     if order.save
-      render json: order
+      render json: order, root: true
     else
       render status: 500
     end
@@ -23,7 +23,7 @@ class ApiController < ApplicationController
 
   def orders
     if recipient
-      render json: recipient.orders
+      render json: { orders: recipient.orders }, root: true
     else
       render status: 500
     end
