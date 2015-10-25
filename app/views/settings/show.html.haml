@@ -25,6 +25,16 @@
       .mb50
         %h1.mb15 Billing Information
 
+        %p.registration__user-info
+          %span.bold Card Type:
+          = current_user.billing_detail.card_type
+        %p.registration__user-info
+          %span.bold Last 4 Digits:
+          = current_user.billing_detail.card_last_four_digits
+        %p.registration__user-info
+          %span.bold Card Expiration:
+          #{current_user.billing_detail.card_exp_month}/#{current_user.billing_detail.card_exp_year}
+
       .mb50
         %h1.mb15 Recipient Information
         = f.fields_for :recipient do |ri|
