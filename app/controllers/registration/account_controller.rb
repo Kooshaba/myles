@@ -4,7 +4,7 @@ module Registration
     protected
 
     def after_sign_up_path_for(resource)
-
+      new_registration_billing_info_path
     end
 
     private
