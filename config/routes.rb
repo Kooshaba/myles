@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   get 'api/categories' => 'api#categories'
   get 'api/category' => 'api#category'
-  post 'api/place_order' => 'api#place_order'
   get 'api/orders' => 'api#orders'
+  get 'api/last_recipient' => 'api#last_recipient'
+  post 'api/place_order' => 'api#place_order'
 
   # Devise / Registration Routes
   devise_for :users

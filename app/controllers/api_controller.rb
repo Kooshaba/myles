@@ -2,7 +2,7 @@ class ApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def categories
-    render json: { categories: Category.all }, root: true
+    render json: { categories: Category.all }
   end
 
   def category
@@ -27,6 +27,10 @@ class ApiController < ApplicationController
     else
       render status: 500
     end
+  end
+
+  def last_recipient
+    render json: Recipient.last, root: true
   end
 
   private
