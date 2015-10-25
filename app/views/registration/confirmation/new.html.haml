@@ -1,0 +1,40 @@
+.registration__container
+  .registration__header.column-12
+    .registration__header-logo.inline-block.mr10
+      = render "svg_html/logo", icon_color: "#fff"
+    You're almost done!
+
+  .p25.text-center.max-width-content
+    %h1.mt25.mb50 Here is what will be provided for you...
+
+    .registration__confirmation-details
+      %p.registration__detail-info
+        = icon "android", class: "registration__detail-icon"
+        An Android tablet specifically tailored for
+        = current_user.recipient.first_name.capitalize
+      %p.registration__detail-info
+        = icon "shopping-cart", class: "registration__detail-icon"
+        A curated shopping experience for only $99/year
+      %p.registration__detail-info
+        = icon "thumbs-up", class: "registration__detail-icon"
+        The simplest, easiest way to get what you need!
+
+      %h2.mt60.mb30.bold Personal Information
+
+      %p.registration__user-info
+        %span.bold First Name:
+        = current_user.first_name.capitalize
+
+      %p.registration__user-info
+        %span.bold Last Name:
+        = current_user.last_name.capitalize
+
+      %p.registration__user-info
+        %span.bold Email:
+        = current_user.email
+
+      %h2.mt60.mb30.bold Billing Information
+
+      %h2.mt60.mb30.bold Recipient Information
+
+    = link_to "Place Order", registration_confirmation_path, class: "btn"

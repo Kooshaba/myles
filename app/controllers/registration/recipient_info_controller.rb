@@ -7,7 +7,7 @@ module Registration
 
     def create
       #TODO - Persist recipient info
-      redirect_to registration_confirmation_path
+      redirect_to new_registration_confirmation_path
     end
   end
 end

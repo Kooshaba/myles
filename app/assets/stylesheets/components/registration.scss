@@ -36,3 +36,27 @@
     display: block !important;
   }
 }
+
+
+// Confirmation Page
+
+.registration__confirmation-details {
+  max-width: 600px;
+  padding: 10px;
+  margin: auto;
+  text-align: left;
+}
+
+.registration__detail-info {
+  font-size: $font-m;
+  margin-bottom: 25px;
+}
+
+.registration__detail-icon {
+  min-width: 40px;
+}
+
+.registration__user-info {
+  margin-bottom: 10px;
+  font-size: $font-xs;
+}

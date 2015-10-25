@@ -4,12 +4,16 @@
       = render "svg_html/logo", icon_color: "#fff"
     You're all set!
 
-  .p25.text-center
+  .p25.text-center.max-width-content
     %h1
       We're going to set up
-      %span.main-color #{@recipient.first_name.capitalize}'s
+      %span.main-color #{current_user.recipient.first_name.capitalize}'s
       custom tablet and send it once it's ready.
 
     %p.mtb50 We'll let you know once they start using it.
 
     = link_to "View Settings", settings_path, class: "btn"
+
+    %p.mtb25 or
+
+    = link_to "Log Out", destroy_user_session_path, method: :delete

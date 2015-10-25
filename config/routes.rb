@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resource :account, controller: "account"
       resource :billing_info, controller: "billing_info"
       resource :recipient_info, controller: "recipient_info"
-      resource :confirmation, controller: "confirmation", only: :show
+      resource :confirmation, controller: "confirmation"
     end
   end
 
