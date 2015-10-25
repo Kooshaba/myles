@@ -9,7 +9,6 @@ class ApiController < ApplicationController
   end
 
   def place_order
-    recipient = Recipient.find(params.require(:recipient_id))
     item      = Item.find(params.require(:item_id))
 
     order = Order.new(recipient: recipient, item: item)
@@ -18,5 +17,19 @@ class ApiController < ApplicationController
     else
       render status: 500
     end
+  end
+
+  def orders
+    if recipient
+      render json: recipient.orders
+    else
+      render status: 500
+    end
+  end
+
+  private
+
+  def recipient
+    @recipient = Recipient.find(params.require(:recipient_id))
   end
 end
