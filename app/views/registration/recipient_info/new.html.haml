@@ -4,7 +4,7 @@
       = render "svg_html/logo", icon_color: "#fff"
     Sweet! So who are you setting this up for?
 
-  .p25
+  .p25.max-width-content
     = form_for @recipient, url: registration_recipient_info_path do |f|
       = f.text_field :first_name, placeholder: "First Name", required: true, autofocus: true, class: "form__text-field"
       = f.text_field :last_name, placeholder: "Last Name", required: true, class: "form__text-field"
