@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rollbar'
 gem 'devise'
+gem 'awesome_print'
 
 # Shelves CSS Grid
 gem "shelves"
@@ -35,6 +36,8 @@ gem "font-awesome-sass"
 
 group :development, :test do
 	gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'byebug'
   gem 'web-console', '~> 2.0'

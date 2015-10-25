@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  get 'api/categories' => 'api#categories'
+  get 'api/category' => 'api#category'
+  get 'api/place_order' => 'api#place_order'
+
   # Devise / Registration Routes
   devise_for :users
   devise_scope :user do
