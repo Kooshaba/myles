@@ -36,7 +36,7 @@
             $paymentForm.after(errorList);
         }
         // Re-enable the submit button
-        $("#js-submit").removeAttr("disabled");
+        $("#js-submit").removeAttr("disabled").val("Confirm Billing Details");
     } else {
         // The token contains id, last4, and card type
         var token = data["id"];
@@ -50,7 +50,7 @@
   $(document).ready(function() {
     $("#js-simplify-payment-form").on("submit", function() {
       // Disable the submit button
-      $("#js-submit").attr("disabled", "disabled");
+      $("#js-submit").attr("disabled", "disabled").val("Saving Info...");
       // Generate a card token & handle the response
       SimplifyCommerce.generateToken({
         key: "sbpb_NzhiNmE3OTgtNGFjOC00YTAzLThmYjgtOThjNGE3ZmVjNzQ2",
