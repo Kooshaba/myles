@@ -7,7 +7,7 @@ class ApiController < ApplicationController
 
   def category
     category = Category.find(params.require(:category_id))
-    render json: { items: category.items }, root: true
+    render json: { items: category.items }
   end
 
   def place_order
@@ -15,7 +15,7 @@ class ApiController < ApplicationController
 
     order = Order.new(recipient: recipient, item: item)
     if order.save
-      render json: order, root: true
+      render json: order
     else
       render status: 500
     end
@@ -23,14 +23,14 @@ class ApiController < ApplicationController
 
   def orders
     if recipient
-      render json: { orders: recipient.orders }, root: true
+      render json: { orders: recipient.orders }
     else
       render status: 500
     end
   end
 
   def last_recipient
-    render json: Recipient.last, root: true
+    render json: Recipient.last
   end
 
   private
