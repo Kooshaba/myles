@@ -20,7 +20,8 @@ module Registration
     private
 
     def update_parameters
-      params.require(:recipient).permit(:first_name, :last_name, :user_id, address: [
+      params.require(:recipient).permit(:first_name, :last_name, :user_id,
+        address_attributes: [
           :address1, :address2, :city, :state, :zip
         ])
     end

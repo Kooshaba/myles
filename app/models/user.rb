@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :recipient
+
+  accepts_nested_attributes_for :recipient
 end

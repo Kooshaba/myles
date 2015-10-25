@@ -37,4 +37,24 @@
 
       %h2.mt60.mb30.bold Recipient Information
 
+      %p.registration__user-info
+        %span.bold First Name:
+        = current_user.recipient.first_name.capitalize
+
+      %p.registration__user-info
+        %span.bold Last Name:
+        = current_user.recipient.last_name.capitalize
+
+      %p.registration__user-info
+        %span.bold Shipping Address:
+        %br/
+        = current_user.recipient.address.address1
+        %br/
+        - if current_user.recipient.address.address2.present?
+          = current_user.recipient.address.address2
+          %br/
+        #{current_user.recipient.address.city},
+        = current_user.recipient.address.state
+        = current_user.recipient.address.zip
+
     = link_to "Place Order", registration_confirmation_path, method: :post, class: "btn"
