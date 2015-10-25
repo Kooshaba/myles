@@ -2,3 +2,28 @@
   max-width: 500px;
   margin: auto;
 }
+
+.landing__body {
+  @include border-box-magic;
+  background: url(landing-img.jpg) no-repeat center;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 92%;
+  padding: 50px;
+  color: #fff;
+  display: block;
+  overflow: auto;
+  position: relative;
+  border-bottom: $main-color 50px solid;
+}
+
+.landing__title {
+  font-size: $font-xl;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.landing__description {
+  font-size: $font-l;
+  margin-bottom: 25px;
+}

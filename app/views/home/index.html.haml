@@ -1,5 +1,13 @@
-.mb25
-  .landing__logo= render "svg_html/logo", icon_color: "#9C27B0", show_logo_text: true
+.header__container
+  .left
+    .header__logo.mt5.mr10
+      = render "svg_html/logo", icon_color: "#fff"
+    .right.mt17 Myles
+  %ul.right
+    %li
+      = link_to "Sign up", new_registration_account_path, class: "btn btn--light-main mb10"
 
-.text-center
-  = link_to "Register", new_registration_account_path, class: "btn"
+.landing__body
+  %h1.landing__title Meet Myles
+  %h2.landing__description The simplest way to get what you need.
+  = link_to "Sign Up", new_registration_account_path, class: "btn"

@@ -12,13 +12,13 @@
   max-width: 100%;
 
   &[disabled="disabled"] {
-  background-color: darkgray;
+    background-color: darkgray;
 
     &:hover {
       background-color: darkgray;
       cursor: not-allowed;
     }
-}
+  }
 
   &:hover {
     background: darken($main-color, 10%);
@@ -26,5 +26,9 @@
 
   &:focus {
     outline: 0;
+  }
+
+  &--light-main {
+    background: lighten($main-color, 15%);
   }
 }
