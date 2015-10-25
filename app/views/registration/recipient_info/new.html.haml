@@ -6,7 +6,7 @@
 
   .p25
     = form_for @recipient, url: registration_recipient_info_path do |f|
-      = f.text_field :first_name, placeholder: "First Name", required: true, class: "form__text-field"
+      = f.text_field :first_name, placeholder: "First Name", required: true, autofocus: true, class: "form__text-field"
       = f.text_field :last_name, placeholder: "Last Name", required: true, class: "form__text-field"
 
       %h2.mtb25 Shipping Information
