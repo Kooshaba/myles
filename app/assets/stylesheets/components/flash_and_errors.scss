@@ -1,11 +1,45 @@
-#error_explanation {
-  background: red;
+@mixin default_error_styling {
   color: #fff;
   padding: 15px;
   margin-bottom: 25px;
   border-radius: $default-border-radius;
+}
+
+#error_explanation {
+  background: red;
+  @include default_error_styling;
 
   h2 {
     margin-bottom: 20px;
+  }
+}
+
+.flash {
+  @include default_error_styling;
+  border-radius: 0;
+  text-align: center;
+  overflow: hidden;
+  animation: slide_up 3s ease-out;
+  max-height: 0;
+  padding: 0;
+
+  &--notice {
+    background: lighten(green, 10%);
+  }
+
+  &--alert {
+    background: red;
+  }
+}
+
+@keyframes slide_up {
+  0%, 90% {
+    max-height: 200px;
+    padding: 15px;
+  }
+
+  100% {
+    max-height: 0;
+    padding: 0;
   }
 }
