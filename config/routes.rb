@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'api/categories' => 'api#categories'
   get 'api/category' => 'api#category'
-  get 'api/place_order' => 'api#place_order'
+  post 'api/place_order' => 'api#place_order'
   get 'api/orders' => 'api#orders'
 
   # Devise / Registration Routes
